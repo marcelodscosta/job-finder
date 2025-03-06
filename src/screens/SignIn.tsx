@@ -2,7 +2,7 @@ import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 import { InputPassword } from '@components/InputPassword';
 import { MaterialIcons } from '@expo/vector-icons';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { View, TouchableOpacity, Text, Pressable } from 'react-native';
 
 export function SignIn() {
   return (
@@ -22,6 +22,10 @@ export function SignIn() {
         <Input placeholder="E-mail" keyboardType="email-address" iconNameLeft="mail-outline" />
         <InputPassword placeholder="Senha" />
         <Button title="Login" />
+
+        <Pressable className="mt-5 self-center">
+          <Text className="text-lg font-bold text-[#356899]">Esqueceu a senha?</Text>
+        </Pressable>
       </View>
     </View>
   );
