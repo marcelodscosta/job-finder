@@ -1,3 +1,4 @@
+import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 import { InputPassword } from '@components/InputPassword';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -20,6 +21,7 @@ export function SignIn() {
       <View className="mt-14 gap-5">
         <Input placeholder="E-mail" keyboardType="email-address" iconNameLeft="mail-outline" />
         <InputPassword placeholder="Senha" />
+        <Button title="Login" />
       </View>
     </View>
   );
