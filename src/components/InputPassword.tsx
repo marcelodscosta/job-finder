@@ -21,7 +21,7 @@ export function InputPassword({ placeholder, ...rest }: InputProps) {
 
       <TouchableOpacity onPress={() => setIsInvisiblePassword(!isInvisiblePassword)}>
         <MaterialIcons
-          name={isInvisiblePassword ? 'visibility' : 'visibility-off'}
+          name={isInvisiblePassword ? 'visibility-off' : 'visibility'}
           size={24}
           color="#d1d5db"
         />
