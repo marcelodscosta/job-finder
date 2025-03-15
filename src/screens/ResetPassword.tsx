@@ -1,5 +1,4 @@
 import { Button } from '@components/Button';
-import { InputCode } from '@components/InputCode';
 import { InputPassword } from '@components/InputPassword';
 import { MaterialIcons } from '@expo/vector-icons';
 import { View, TouchableOpacity, Text, KeyboardAvoidingView, Platform } from 'react-native';
