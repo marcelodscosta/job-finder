@@ -1,4 +1,5 @@
 import { Button } from '@components/Button';
+import { PhoneInput } from '@components/CountryPicker';
 import { Input } from '@components/Input';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useState } from 'react';
@@ -38,7 +39,11 @@ export function Forgot_Password() {
         </View>
 
         <View className="mb-16 mt-14 flex-1">
-          <Input placeholder="E-mail" keyboardType="email-address" iconNameLeft="mail-outline" />
+          {selected === 'phone' ? (
+            <PhoneInput />
+          ) : (
+            <Input placeholder="E-mail" keyboardType="email-address" iconNameLeft="mail-outline" />
+          )}
         </View>
         <View className="mb-10">
           <Button title="Enviar código" />
