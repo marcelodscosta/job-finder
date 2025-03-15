@@ -26,7 +26,7 @@ export function VerifyCode() {
           <InputCode />
           <InputCode />
         </View>
-        <View className="mb-10">
+        <View className="mb-10 mt-12">
           <Button title="Verificar" />
         </View>
       </View>
