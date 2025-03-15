@@ -1,6 +1,4 @@
 import { Button } from '@components/Button';
-import { PhoneInput } from '@components/CountryPicker';
-import { Input } from '@components/Input';
 import { InputCode } from '@components/InputCode';
 import { MaterialIcons } from '@expo/vector-icons';
 import { View, TouchableOpacity, Text, KeyboardAvoidingView, Platform } from 'react-native';
