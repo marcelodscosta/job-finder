@@ -14,6 +14,7 @@ export function InputPassword({ placeholder, ...rest }: InputProps) {
       <MaterialIcons name="key" size={24} color="#d1d5db" />
       <TextInput
         placeholder={placeholder}
+        placeholderTextColor="#d1d5db"
         {...rest}
         className="min-h-16 flex-1 rounded-md  p-3 text-black"
         secureTextEntry={isInvisiblePassword}
