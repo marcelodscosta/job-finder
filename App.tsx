@@ -1,6 +1,6 @@
 import { Loading } from '@components/Loading';
 import { Poppins_400Regular, Poppins_700Bold, useFonts } from '@expo-google-fonts/poppins';
-import { VerifyCode } from '@screens/Verify_Code';
+import { VerifyCode } from '@screens/VerifyCode';
 import { StatusBar } from 'expo-status-bar';
 import { View } from 'react-native';
 import './global.css';
