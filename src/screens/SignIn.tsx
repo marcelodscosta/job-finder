@@ -17,7 +17,11 @@ function handleSignIn(data: FormDataProps) {
 
 export function SignIn() {
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
-  const { control, handleSubmit } = useForm<FormDataProps>();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormDataProps>();
 
   return (
     <ScrollView>
@@ -33,6 +37,13 @@ export function SignIn() {
           <Controller
             control={control}
             name="email"
+            rules={{
+              required: 'O e-mail é obrigatório',
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: 'E-mail inválido',
+              },
+            }}
             render={({ field: { value, onChange } }) => (
               <Input
                 placeholder="E-mail"
@@ -40,18 +51,24 @@ export function SignIn() {
                 iconNameLeft="mail-outline"
                 onChangeText={onChange}
                 value={value}
+                errorMessage={errors.email?.message}
               />
             )}
           />
           <Controller
             control={control}
             name="password"
+            rules={{
+              required: 'A senha é obrigatória',
+              minLength: { value: 6, message: 'A senha deve ter pelo menos 6 caracteres' },
+            }}
             render={({ field: { value, onChange } }) => (
               <InputPassword
                 returnKeyType="send"
                 onChangeText={onChange}
                 value={value}
                 placeholder="Senha"
+                errorMessage={errors.password?.message}
               />
             )}
           />
