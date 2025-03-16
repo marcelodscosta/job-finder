@@ -47,7 +47,12 @@ export function SignIn() {
             control={control}
             name="password"
             render={({ field: { value, onChange } }) => (
-              <InputPassword onChangeText={onChange} value={value} placeholder="Senha" />
+              <InputPassword
+                returnKeyType="send"
+                onChangeText={onChange}
+                value={value}
+                placeholder="Senha"
+              />
             )}
           />
           <Button onPress={handleSubmit(handleSignIn)} title="Login" />
