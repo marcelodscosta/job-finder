@@ -7,11 +7,7 @@ import { View, TouchableOpacity, Text, Pressable, Image, ScrollView } from 'reac
 export function SignIn() {
   return (
     <ScrollView>
-      <View className="flex-1 px-6">
-        <TouchableOpacity className="mt-20">
-          <MaterialIcons name="keyboard-arrow-left" size={35} color="black" />
-        </TouchableOpacity>
-
+      <View className="mt-24 flex-1 px-6">
         <Text className="mt-3 text-2xl text-blue-700">Jôbizz</Text>
         <Text className="mt-8 text-4xl text-black">Bem Vindo</Text>
 
