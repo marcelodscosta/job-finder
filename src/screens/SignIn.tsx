@@ -1,8 +1,7 @@
 import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 import { InputPassword } from '@components/InputPassword';
-import { MaterialIcons } from '@expo/vector-icons';
-import { View, TouchableOpacity, Text, Pressable, Image, ScrollView } from 'react-native';
+import { View, Text, Pressable, Image, ScrollView } from 'react-native';
 
 export function SignIn() {
   return (
