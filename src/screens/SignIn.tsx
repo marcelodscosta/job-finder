@@ -3,10 +3,21 @@ import { Input } from '@components/Input';
 import { InputPassword } from '@components/InputPassword';
 import { useNavigation } from '@react-navigation/native';
 import { AuthNavigatorRoutesProps } from '@routes/auth.routes';
+import { useForm, Controller } from 'react-hook-form';
 import { View, Text, Pressable, Image, ScrollView } from 'react-native';
+
+type FormDataProps = {
+  email: string;
+  password: string;
+};
+
+function handleSignIn(data: FormDataProps) {
+  console.log(data);
+}
 
 export function SignIn() {
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
+  const { control, handleSubmit } = useForm<FormDataProps>();
 
   return (
     <ScrollView>
@@ -19,9 +30,27 @@ export function SignIn() {
         </Text>
 
         <View className="mt-14 gap-5">
-          <Input placeholder="E-mail" keyboardType="email-address" iconNameLeft="mail-outline" />
-          <InputPassword placeholder="Senha" />
-          <Button title="Login" />
+          <Controller
+            control={control}
+            name="email"
+            render={({ field: { value, onChange } }) => (
+              <Input
+                placeholder="E-mail"
+                keyboardType="email-address"
+                iconNameLeft="mail-outline"
+                onChangeText={onChange}
+                value={value}
+              />
+            )}
+          />
+          <Controller
+            control={control}
+            name="password"
+            render={({ field: { value, onChange } }) => (
+              <InputPassword onChangeText={onChange} value={value} placeholder="Senha" />
+            )}
+          />
+          <Button onPress={handleSubmit(handleSignIn)} title="Login" />
 
           <Pressable onPress={() => navigate('forgotPassword')} className="mt-5 self-center">
             <Text className="text-lg font-bold text-[#356899]">Esqueceu a senha?</Text>
