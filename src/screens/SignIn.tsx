@@ -1,9 +1,13 @@
 import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 import { InputPassword } from '@components/InputPassword';
+import { useNavigation } from '@react-navigation/native';
+import { AuthNavigatorRoutesProps } from '@routes/auth.routes';
 import { View, Text, Pressable, Image, ScrollView } from 'react-native';
 
 export function SignIn() {
+  const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
+
   return (
     <ScrollView>
       <View className="mt-24 flex-1 px-6">
@@ -19,7 +23,7 @@ export function SignIn() {
           <InputPassword placeholder="Senha" />
           <Button title="Login" />
 
-          <Pressable className="mt-5 self-center">
+          <Pressable onPress={() => navigate('forgotPassword')} className="mt-5 self-center">
             <Text className="text-lg font-bold text-[#356899]">Esqueceu a senha?</Text>
           </Pressable>
         </View>
@@ -63,7 +67,7 @@ export function SignIn() {
 
         <View className=" mt-10 flex-row items-center justify-center">
           <Text>Ainda não tem conta? </Text>
-          <Pressable>
+          <Pressable onPress={() => navigate('signUp')}>
             <Text className="text-lg font-bold text-[#356899]">Registre-se!</Text>
           </Pressable>
         </View>

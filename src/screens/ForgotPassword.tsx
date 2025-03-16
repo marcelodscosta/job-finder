@@ -2,10 +2,14 @@ import { Button } from '@components/Button';
 import { PhoneInput } from '@components/CountryPicker';
 import { Input } from '@components/Input';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { AuthNavigatorRoutesProps } from '@routes/auth.routes';
 import { useState } from 'react';
 import { View, TouchableOpacity, Text, KeyboardAvoidingView, Platform } from 'react-native';
 
-export function Forgot_Password() {
+export function ForgotPassword() {
+  const { goBack } = useNavigation<AuthNavigatorRoutesProps>();
+
   const [selected, setSelected] = useState('email');
 
   return (
@@ -13,7 +17,7 @@ export function Forgot_Password() {
       className="flex-1"
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <View className="flex-1 px-6">
-        <TouchableOpacity className="mt-20">
+        <TouchableOpacity onPress={() => goBack()} className="mt-20">
           <MaterialIcons name="keyboard-arrow-left" size={35} color="black" />
         </TouchableOpacity>
 

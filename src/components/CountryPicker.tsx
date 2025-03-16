@@ -42,8 +42,9 @@ export function PhoneInput() {
         <Text className="pr-2 text-lg font-semibold">{selectedCountry.dialCode}</Text>
 
         <TextInput
-          className="flex-1 text-lg"
+          className="min-h-16 flex-1 text-lg "
           placeholder="Digite seu telefone"
+          placeholderTextColor="#d1d5db"
           keyboardType="phone-pad"
           value={phoneNumber}
           onChangeText={(text) => setPhoneNumber(text.replace(/\D/g, ''))} // Remove não numéricos

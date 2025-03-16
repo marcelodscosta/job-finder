@@ -2,13 +2,17 @@ import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 import { InputPassword } from '@components/InputPassword';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { AuthNavigatorRoutesProps } from '@routes/auth.routes';
 import { View, TouchableOpacity, Text, Pressable, Image, ScrollView } from 'react-native';
 
 export function SignUp() {
+  const { navigate, goBack } = useNavigation<AuthNavigatorRoutesProps>();
+
   return (
     <ScrollView>
       <View className="flex-1 px-6">
-        <TouchableOpacity className="mt-20">
+        <TouchableOpacity onPress={() => goBack()} className="mt-20">
           <MaterialIcons name="keyboard-arrow-left" size={35} color="black" />
         </TouchableOpacity>
 
@@ -67,7 +71,7 @@ export function SignUp() {
 
         <View className=" mt-10 flex-row items-center justify-center">
           <Text>Já tem conta? </Text>
-          <Pressable>
+          <Pressable onPress={() => navigate('signIn')}>
             <Text className="text-lg font-bold text-[#356899]">Login</Text>
           </Pressable>
         </View>
