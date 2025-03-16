@@ -1,10 +1,19 @@
 import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 import { InputPassword } from '@components/InputPassword';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigation } from '@react-navigation/native';
 import { AuthNavigatorRoutesProps } from '@routes/auth.routes';
 import { useForm, Controller } from 'react-hook-form';
 import { View, Text, Pressable, Image, ScrollView } from 'react-native';
+import { z } from 'zod';
+
+const schema = z.object({
+  email: z.string({ required_error: 'Digite um e-mail válido' }).email('E-mail Inválido'),
+  password: z
+    .string({ required_error: 'Digite uma senha' })
+    .min(6, 'A senha deve ter no mínimo 6 caracters'),
+});
 
 type FormDataProps = {
   email: string;
@@ -21,7 +30,9 @@ export function SignIn() {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormDataProps>();
+  } = useForm<FormDataProps>({
+    resolver: zodResolver(schema),
+  });
 
   return (
     <ScrollView>
