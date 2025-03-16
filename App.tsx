@@ -3,7 +3,7 @@ import { Poppins_400Regular, Poppins_700Bold, useFonts } from '@expo-google-font
 import { StatusBar } from 'expo-status-bar';
 import { View } from 'react-native';
 import './global.css';
-import { SignUp } from '@screens/SignUp';
+import { PasswordChangeConfirmation } from '@screens/PasswordChangeConfirmation';
 
 export default function App() {
   const [fontLoaded] = useFonts({
@@ -14,7 +14,7 @@ export default function App() {
   return (
     <View className="flex-1">
       <StatusBar style="auto" translucent />
-      {fontLoaded ? <SignUp /> : <Loading />}
+      {fontLoaded ? <PasswordChangeConfirmation /> : <Loading />}
     </View>
   );
 }
