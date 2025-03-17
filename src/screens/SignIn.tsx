@@ -4,6 +4,7 @@ import { InputPassword } from '@components/InputPassword';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigation } from '@react-navigation/native';
 import { AuthNavigatorRoutesProps } from '@routes/auth.routes';
+import { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { View, Text, Pressable, Image, ScrollView } from 'react-native';
 import { z } from 'zod';
@@ -20,15 +21,23 @@ type FormDataProps = {
   password: string;
 };
 
-function handleSignIn(data: FormDataProps) {
-  console.log(data);
-}
-
 export function SignIn() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  function handleSignIn(data: FormDataProps) {
+    setIsLoaded(true);
+
+    setTimeout(() => {
+      setIsLoaded(false);
+      console.log(data);
+      reset();
+    }, 1000);
+  }
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormDataProps>({
     resolver: zodResolver(schema),
@@ -83,7 +92,7 @@ export function SignIn() {
               />
             )}
           />
-          <Button onPress={handleSubmit(handleSignIn)} title="Login" />
+          <Button onPress={handleSubmit(handleSignIn)} title="Login" disabled={isLoaded} />
 
           <Pressable onPress={() => navigate('forgotPassword')} className="mt-5 self-center">
             <Text className="text-lg font-bold text-[#356899]">Esqueceu a senha?</Text>
